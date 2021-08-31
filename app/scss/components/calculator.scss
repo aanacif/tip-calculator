@@ -20,7 +20,6 @@ form {
 
       input[type="number"] {
         -moz-appearance: textfield;
-
         padding: 1rem;
         background-color: var(--lightgrayishcyan);
         border: none;
@@ -45,7 +44,45 @@ form {
         color: var(--darkgrayishcyan);
       }
       .calc-tip-title {
+        color: var(--darkgrayishcyan);
         font-size: 0.8rem;
+      }
+      .calc-percs {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+        gap: 1rem;
+        %options-shared {
+          background-color: var(--verydarkcyan);
+          color: var(--white);
+          font-weight: 700;
+          border-radius: 5px;
+          padding: 0.4rem 0;
+        }
+        .option-1 {
+          @extend %options-shared;
+        }
+        .option-2 {
+          @extend %options-shared;
+        }
+        .option-3 {
+          @extend %options-shared;
+        }
+        .option-4 {
+          @extend %options-shared;
+        }
+        .option-5 {
+          @extend %options-shared;
+        }
+        .option-6 {
+          @extend %options-shared;
+          background-color: var(--lightgrayishcyan);
+          color: var(--verydarkcyan);
+        }
+      }
+      label[class="calc-people"] {
+        margin-top: 2rem;
       }
     }
     .calc-visor {
