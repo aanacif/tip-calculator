@@ -18,45 +18,50 @@
 <body>
 
 	<nav class="navbar">
-		<h1>SPLI</h1>
-		<h1>TTER</h1>
+		<h1>SPLI TTER</h1>
+
 	</nav>
 
 	<main>
-		<form action="">
+		<div class="container">
 
-			<div class="calc-container">
-				<div class="calc-inputs">
+			<form action="" class="calc">
 
-					<label for="bill"></label>
-					<input type="number" name="bill" class="calc-bill">Bill
+				<div class="calc-container">
 
-					<h2 class="calc-tip-title">Select Tip %</h2>
-					<div class="calc-percs">
-						<div class="option-1">5%</div>
-						<div class="option-2">10%</div>
-						<div class="option-3">15%</div>
-						<div class="option-4">25%</div>
-						<div class="option-5">50%</div>
-						<div class="option-6">Custom</div>
+					<div class="calc-inputs">
+						<label for="bill">Bill</label>
+						<input type="number" name="bill" class="calc-bill">
+						<div class="dollar">$</div>
+
+
+						<h2 class="calc-tip-title">Select Tip %</h2>
+						<div class="calc-percs">
+							<div class="option-1">5%</div>
+							<div class="option-2">10%</div>
+							<div class="option-3">15%</div>
+							<div class="option-4">25%</div>
+							<div class="option-5">50%</div>
+							<div class="option-6">Custom</div>
+						</div>
+						<label for="calc-people"></label>
+						<input type="number" name="people" class="calc-people"> Number of People
 					</div>
-					<label for="calc-people"></label>
-					<input type="number" name="people" class="calc-people"> Number of People
+
+					<div class="calc-visor">
+						<div class="calc-tip-amount">
+							<h2 class="calc-tip-amount-title">Tip Amount</h2><span class="calc-tip-amount-person">/ person</span>
+						</div>
+						<div class="calc-total">
+							<h2 class="calc-total-title">Total</h2><span class="calc-total-person">/ person</span>
+						</div>
+						<button type="reset">Reset</button>
+					</div>
+
 				</div>
 
-				<div class="calc-visor">
-					<div class="calc-tip-amount">
-						<h2 class="calc-tip-amount-title">Tip Amount</h2><span class="calc-tip-amount-person">/ person</span>
-					</div>
-					<div class="calc-total">
-						<h2 class="calc-total-title">Total</h2><span class="calc-total-person">/ person</span>
-					</div>
-					<button type="reset">Reset</button>
-				</div>
+			</form>
 
-			</div>
-
-		</form>
 
 	</main>
 
@@ -67,6 +72,8 @@
 			Coded by <a href="#">Your Name Here</a>.
 		</div>
 	</footer>
+
+	</div>
 
 </body>
 

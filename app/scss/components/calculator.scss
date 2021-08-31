@@ -1,0 +1,58 @@
+@use '../util' as *;
+
+form {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.calc {
+  .calc-container {
+    display: flex;
+    margin: auto;
+    width: 60%;
+    height: rem(400);
+    background-color: var(--white);
+
+    .calc-inputs {
+      display: grid;
+      width: 50%;
+      margin: 2rem;
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+
+        padding: 1rem;
+        background-color: var(--lightgrayishcyan);
+        border: none;
+        border-radius: 5px;
+        color: var(--verydarkcyan);
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: right;
+        outline: none;
+      }
+      label {
+        color: var(--darkgrayishcyan);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      .dollar {
+        display: inline-block;
+        width: fit-content;
+        position: relative;
+        top: -44px;
+        left: 10px;
+        color: var(--darkgrayishcyan);
+      }
+      .calc-tip-title {
+        font-size: 0.8rem;
+      }
+    }
+    .calc-visor {
+      display: grid;
+      width: 50%;
+      margin: 2rem;
+      border: 1px solid green;
+    }
+  }
+}
