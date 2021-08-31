@@ -12,6 +12,7 @@ form {
     width: 60%;
     height: rem(400);
     background-color: var(--white);
+    border-radius: 25px;
 
     .calc-inputs {
       display: grid;
@@ -20,7 +21,7 @@ form {
 
       input[type="number"] {
         -moz-appearance: textfield;
-        padding: 1rem;
+        padding: 0.5rem;
         background-color: var(--lightgrayishcyan);
         border: none;
         border-radius: 5px;
@@ -36,12 +37,9 @@ form {
         font-weight: 700;
       }
       .dollar {
-        display: inline-block;
-        width: fit-content;
         position: relative;
-        top: -44px;
-        left: 10px;
-        color: var(--darkgrayishcyan);
+        top: -28px;
+        left: 15px;
       }
       .calc-tip-title {
         color: var(--darkgrayishcyan);
@@ -81,8 +79,29 @@ form {
           color: var(--verydarkcyan);
         }
       }
-      label[class="calc-people"] {
+
+      .people-wrapper {
         margin-top: 2rem;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        display: flex;
+        .calc-number-of-people {
+          font-size: 0.8rem;
+          width: fit-content;
+        }
+        .zero-people {
+          display: flex;
+          font-size: 0.8rem;
+          width: fit-content;
+          color: red;
+          opacity: 0;
+        }
+      }
+
+      .people-icon {
+        position: relative;
+        left: 15px;
+        top: -28px;
       }
     }
     .calc-visor {
