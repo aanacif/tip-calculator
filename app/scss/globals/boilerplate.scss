@@ -17,3 +17,8 @@ body {
   background-color: var(--darkgrayishcyan);
   font-family: "Space Mono", monospace;
 }
+input,
+textarea,
+select {
+  font-family: inherit;
+}
