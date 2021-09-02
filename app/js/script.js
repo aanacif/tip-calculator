@@ -1,15 +1,23 @@
 //Calc container
-let calc = document.querySelector('.calc-container')
-
-let tipAmountPerson = document.querySelector('.calc-tip-amount h1').textContent
-let tipAmountTotal = document.querySelector('.calc-total h1').textContent
+const calc = document.querySelector('.calc-container')
 //Bill
-let calcBill = document.querySelector('.calc-bill')
+const calcBill = document.querySelector('.calc-bill')
 //Number of people
-let calcPeople = document.querySelector('.calc-people')
+const calcPeople = document.querySelector('.calc-people')
 //reset button
-let calcReset = document.querySelector('.reset')
+const calcReset = document.querySelector('.reset')
 
+const tipAmountPerson = document.querySelector('.calc-tip-amount h1').textContent
+const tipAmountTotal = document.querySelector('.calc-total h1').textContent
+
+const percentageSelectEvent = document.querySelector('.calc-percs')
+percentageSelectEvent.addEventListener('change', (event) => {
+	let temp = document.querySelector('.calc-percs label')
+	temp.classList.remove('active')
+	console.log(event.target?.parentNode?.classList.toggle('active'))
+
+	checkOut()
+})
 
 
 //zero-people-alert
@@ -22,18 +30,6 @@ calcPeople.addEventListener('keyup', () => {
 	}
 })
 
-
-
-calc.addEventListener('keyup', () => {
-	let totalPerPerson = calcTotalPerPerson(calcBill.value, calcPeople.value)
-	let totalPercentage = calcPercentage(calcBill.value, calcCut.value)
-	if (totalPerPerson) {
-		document.querySelector('.calc-total h1').textContent = `$${totalPerPerson}`
-	}
-})
-
-
-
 function round(num) {
 	let m = Number((Math.abs(num) * 100).toPrecision(15));
 	return Math.round(m) / 100 * Math.sign(num);
@@ -45,12 +41,42 @@ calcReset.addEventListener('click', () => {
 })
 
 function calcPercentage(bill, percentage) {
-	let result = bill * percentage
-	console.log(result)
-}
-function calcTotalPerPerson(bill, people) {
-	let result = bill / people
-	if (Number.isFinite(result) && !isNaN(result)) {
+	if (bill && percentage) {
+		let result = bill * (percentage / 100)
 		return round(result)
 	}
+}
+function calcTotalPerPerson(bill, people) {
+	if (bill && people) {
+		let result = bill / people
+		if (Number.isFinite(result) && !isNaN(result)) {
+			return round(result)
+		}
+	}
+	return
+}
+
+calc.addEventListener('keyup', () => {
+	checkOut()
+})
+
+const checkOut = () => {
+	const totalPerPerson = calcTotalPerPerson(calcBill.value, calcPeople.value)
+	let totalPercentage = calcPercentage(calcBill.value, selectedPercentage())
+	if (totalPerPerson > 0) {
+		document.querySelector('.calc-total h1').textContent = `$${totalPerPerson + (totalPercentage / calcPeople.value)}`
+	}
+	if (totalPercentage > 0 && calcPeople.value) {
+		totalPercentage = totalPercentage / calcPeople.value
+		document.querySelector('.calc-tip-amount h1').textContent = `$${totalPercentage}`
+
+	}
+}
+
+const selectedPercentage = () => {
+	let isPercentageSelected = document.querySelectorAll('.calc-percs input[name="options"]:checked');
+	if (isPercentageSelected) {
+		return round(isPercentageSelected[0]?.value)
+	}
+	return 1
 }

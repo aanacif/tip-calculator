@@ -90,7 +90,7 @@ form {
           top: 0;
           left: 0;
 
-          input[type="name"] {
+          & [type="name"] {
             position: absolute;
             top: 0;
             left: 0;
@@ -103,8 +103,9 @@ form {
             text-align: center;
             border: none;
             border-radius: 5px;
+            z-index: 0;
           }
-          & [type="radio"] {
+          &[type="radio"] {
             position: absolute;
             top: 0;
             left: 0px;
