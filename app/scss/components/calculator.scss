@@ -4,23 +4,46 @@ form {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  @include breakpoint-down(small) {
+    margin: 0;
+  }
 }
+
 .calc {
   .calc-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
     margin: auto;
-    width: 800px;
+    width: rem(800);
     height: rem(400);
     background-color: var(--white);
     border-radius: 25px;
+    @include breakpoint-down(small) {
+      //width: rem(375);
+      grid-template-columns: 1fr;
+      margin: 0;
+      max-width: rem(375);
+      height: rem(720);
+      gap: 0;
+    }
     .calc-inputs {
-      display: grid;
-      width: 50%;
       margin: 2rem;
-      margin-right: 1rem;
-      input[type="number"] {
+      margin-right: 0;
+      align-content: center;
+      height: rem(450);
+      @include breakpoint-down(small) {
+        margin: 0 2rem;
+        height: rem(330);
+      }
+
+      input[name="bill"] {
+        //position: relative;
+        display: block;
         -moz-appearance: textfield;
+        margin: 0 auto;
         padding: 0.5rem;
+        width: 100%;
         background-color: var(--lightgrayishcyan);
         border: none;
         border-radius: 5px;
@@ -29,15 +52,23 @@ form {
         font-weight: 700;
         text-align: right;
         outline: none;
+        @include breakpoint-down(small) {
+          width: 100%;
+          height: 3rem;
+          font-size: 1.5rem;
+        }
       }
-      label {
+      .bill {
+        width: 100%;
         color: var(--darkgrayishcyan);
         font-size: 0.8rem;
         font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
       }
       .dollar {
         position: relative;
-        top: -28px;
+        top: -42px;
         left: 15px;
       }
       .calc-tip-title {
@@ -46,8 +77,12 @@ form {
       }
       .calc-percs {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, auto);
         gap: 1rem;
+        @include breakpoint-down(small) {
+          grid-template-columns: repeat(2, auto);
+          width: 100%;
+        }
         & [type="radio"] {
           position: absolute;
           top: 0;
@@ -58,29 +93,39 @@ form {
           margin: 0;
           z-index: -1;
         }
-        & [type="number"] {
+        & [name="custom-name"] {
+          -moz-appearance: textfield;
           position: absolute;
           top: 0;
           left: 0;
           height: 100%;
-          width: 100%;
-          font-size: 1.5rem;
+          width: 105px;
+          font-size: 1rem;
           font-weight: 700;
           background-color: var(--lightgrayishcyanactive);
           color: var(--verydarkcyan);
           text-align: center;
           border: none;
           border-radius: 5px;
+          @include breakpoint-down(small) {
+            width: 100%;
+          }
         }
         .option-label {
+          text-align: center;
+          width: 105px;
           position: relative;
           background-color: var(--verydarkcyan);
           color: var(--white);
+          font-size: 1rem;
           font-weight: 700;
           border-radius: 5px;
-          padding: 0;
+          padding: 0.5rem 0;
           margin: 0;
           cursor: pointer;
+          @include breakpoint-down(small) {
+            width: 100%;
+          }
           &:hover {
             background-color: var(--lightgrayishcyanactive);
             color: var(--verydarkcyan);
@@ -92,16 +137,20 @@ form {
         }
 
         h2 {
+          display: inline;
           margin: 0;
           padding: 0;
           text-align: center;
-          padding: 1rem 2rem;
+          //padding: 1rem 2rem;
         }
         #option-custom-label {
           position: relative;
           top: 0;
           left: 0;
           cursor: pointer;
+          @include breakpoint-down(small) {
+            width: 100%;
+          }
         }
       }
       .people-wrapper {
@@ -123,22 +172,45 @@ form {
           opacity: 0;
         }
       }
+      .calc-people {
+        display: block;
+        -moz-appearance: textfield;
+        margin: auto;
+        padding: 0.5rem;
+        width: 100%;
+        background-color: var(--lightgrayishcyan);
+        border: none;
+        border-radius: 5px;
+        color: var(--verydarkcyan);
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: right;
+        outline: none;
+        @include breakpoint-down(small) {
+          margin: auto;
+        }
+      }
       .people-icon {
         position: relative;
         left: 15px;
-        top: -28px;
+        top: -42px;
       }
     }
     .calc-visor {
-      display: grid;
-      width: 50%;
-      margin: 2rem;
-      margin-left: 1rem;
+      max-width: rem(375);
       padding: 2rem;
-      border: 1px solid green;
-      background-color: var(--verydarkcyan);
-      border-radius: 25px;
       border: none;
+      border-radius: 25px;
+      margin: 2rem;
+      margin-left: 0;
+      align-content: center;
+      height: 350px;
+      background-color: var(--verydarkcyan);
+      @include breakpoint-down(small) {
+        margin: 7rem 2rem;
+        height: rem(250);
+      }
+
       .calc-tip-amount {
         display: flex;
         justify-content: space-between;
@@ -163,6 +235,7 @@ form {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 3rem;
         h1 {
           margin: 0;
           font-size: 2.5rem;
@@ -179,7 +252,11 @@ form {
           color: var(--darkgrayishcyan);
         }
       }
-      button {
+      .reset {
+        display: block;
+        margin: 0 auto;
+        margin-top: 4rem;
+        width: 100%;
         position: relative;
         top: 47px;
         left: 0;
@@ -193,6 +270,11 @@ form {
         font-size: 1rem;
         letter-spacing: 0.2mm;
         cursor: pointer;
+        @include breakpoint-down(small) {
+          top: -40px;
+          background-color: var(--strongcyan);
+          opacity: 1;
+        }
         &:hover {
           background-color: var(--lightgrayishcyanactive);
           color: var(--verydarkcyan);

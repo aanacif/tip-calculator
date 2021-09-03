@@ -29,8 +29,9 @@
 
 					<div class="calc-inputs">
 
-						<label for="bill">Bill</label>
+						<label for="bill" class="bill">Bill</label>
 						<input type="number" name="bill" class="calc-bill">
+
 						<img src="./app/images/icon-dollar.svg" alt="dollar-sign" class="dollar">
 						<h2 class="calc-tip-title">Select Tip %</h2>
 
@@ -61,19 +62,12 @@
 								<h2>50%</h2>
 							</label>
 
-							<label for="option-custom" class="option-label">
-								<input type="number" id="option-custom-input" placeholder="Custom">
+							<label for="option-custom" id="option-custom-label">
+								<input type="number" id="option-custom-input" name="custom-name" placeholder="Custom">
 								<input type="radio" id="option-custom" name="options" value="custom">
-								<h2>Custom</h2>
 							</label>
 
-
 						</div>
-
-
-
-
-
 
 						<div class="people-wrapper">
 							<span class="calc-number-of-people">Number of People</span><span class="zero-people">Can't be zero</span>
