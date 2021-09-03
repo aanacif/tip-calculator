@@ -12,13 +12,16 @@ const tipAmountTotal = document.querySelector('.calc-total h1').textContent
 
 const percentageSelectEvent = document.querySelector('.calc-percs')
 percentageSelectEvent.addEventListener('change', (event) => {
-	let temp = document.querySelector('.calc-percs label')
-	temp.classList.remove('active')
-	console.log(event.target?.parentNode?.classList.toggle('active'))
-
+	let child = event.currentTarget.children
+	for (let counter = 0; counter < child.length; counter++) {
+		if (child[counter].classList.contains('active')) {
+			child[counter].classList.remove('active')
+		}
+	}
+	let parent = event.target?.offsetParent
+	parent.classList.toggle('active')
 	checkOut()
 })
-
 
 //zero-people-alert
 let zeroAlert = document.querySelector('.zero-people')
@@ -35,9 +38,20 @@ function round(num) {
 	return Math.round(m) / 100 * Math.sign(num);
 }
 
+const checkForActives = document.querySelector('.calc-percs')
+const clearActives = () => {
+	let child = checkForActives.children
+
+	for (let counter = 0; counter < child.length; counter++) {
+		if (child[counter].classList.contains('active')) {
+			child[counter].classList.remove('active')
+		}
+	}
+}
 calcReset.addEventListener('click', () => {
 	document.querySelector('.calc-tip-amount h1').textContent = '$0.00'
 	document.querySelector('.calc-total h1').textContent = '$0.00'
+	clearActives()
 })
 
 function calcPercentage(bill, percentage) {
@@ -64,11 +78,11 @@ const checkOut = () => {
 	const totalPerPerson = calcTotalPerPerson(calcBill.value, calcPeople.value)
 	let totalPercentage = calcPercentage(calcBill.value, selectedPercentage())
 	if (totalPerPerson > 0) {
-		document.querySelector('.calc-total h1').textContent = `$${totalPerPerson + (totalPercentage / calcPeople.value)}`
+		document.querySelector('.calc-total h1').textContent = `$${round(totalPerPerson + round((totalPercentage / calcPeople.value)))}`
 	}
 	if (totalPercentage > 0 && calcPeople.value) {
 		totalPercentage = totalPercentage / calcPeople.value
-		document.querySelector('.calc-tip-amount h1').textContent = `$${totalPercentage}`
+		document.querySelector('.calc-tip-amount h1').textContent = `$${round(totalPercentage)}`
 
 	}
 }
