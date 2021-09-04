@@ -24,13 +24,13 @@
 	<main>
 		<div class="container">
 
-			<form action="" class="calc">
+			<form class="calc">
 				<div class="calc-container">
 
 					<div class="calc-inputs">
 
 						<label for="bill" class="bill">Bill</label>
-						<input type="number" name="bill" class="calc-bill">
+						<input type="number" name="bill" class="calc-bill" min=1 oninput="validity.valid||(value='');">
 
 						<img src="./app/images/icon-dollar.svg" alt="dollar-sign" class="dollar">
 						<h2 class="calc-tip-title">Select Tip %</h2>
@@ -64,7 +64,8 @@
 
 							<label for="option-custom-radio" class="option-label">
 								<input type="radio" id="option-custom-radio" name="options">
-								<input type="number" name="option-custom-input" onfocus="clearActives()" placeholder="Custom">
+								<input type="number" name="option-custom-input" onfocus="clearActives()" placeholder="Custom" min=0
+									oninput="validity.valid||(value='');">
 							</label>
 
 
@@ -74,7 +75,8 @@
 							<span class="calc-number-of-people">Number of People</span><span class="zero-people">Can't be zero</span>
 						</div>
 
-						<input type="number" name="people" class="calc-people" placeholder="0" min="1" max="99">
+						<input type="number" name="people" class="calc-people" placeholder="0" min=0
+							oninput="validity.valid||(value='');">
 						<img src="./app/images/icon-person.svg" alt="person-icon" class="people-icon">
 
 					</div>

@@ -4,6 +4,9 @@ form {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  @include breakpoint-down(medium) {
+    margin: 0 auto;
+  }
   @include breakpoint-down(small) {
     margin: 0;
   }
@@ -19,20 +22,22 @@ form {
     height: rem(400);
     background-color: var(--white);
     border-radius: 25px;
-    @include breakpoint-down(small) {
-      //width: rem(375);
+    @include breakpoint-down(medium) {
       grid-template-columns: 1fr;
-      margin: 0;
+      margin: 0 auto;
       max-width: rem(375);
       height: rem(720);
       gap: 0;
+    }
+    @include breakpoint-down(small) {
+      margin: 0;
     }
     .calc-inputs {
       margin: 2rem;
       margin-right: 0;
       align-content: center;
       height: rem(450);
-      @include breakpoint-down(small) {
+      @include breakpoint-down(medium) {
         margin: 0 2rem;
         height: rem(330);
       }
@@ -51,7 +56,7 @@ form {
         font-weight: 700;
         text-align: right;
         outline: none;
-        @include breakpoint-down(small) {
+        @include breakpoint-down(medium) {
           width: 100%;
           height: 3rem;
           font-size: 1.5rem;
@@ -78,7 +83,7 @@ form {
         display: grid;
         grid-template-columns: repeat(3, auto);
         gap: 1rem;
-        @include breakpoint-down(small) {
+        @include breakpoint-down(medium) {
           grid-template-columns: repeat(2, auto);
           width: 100%;
         }
@@ -111,7 +116,7 @@ form {
           &::placeholder {
             text-align: center;
           }
-          @include breakpoint-down(small) {
+          @include breakpoint-down(medium) {
             width: 100%;
           }
         }
@@ -131,7 +136,7 @@ form {
             background-color: var(--lightgrayishcyan);
             color: var(--verydarkcyan);
           }
-          @include breakpoint-down(small) {
+          @include breakpoint-down(medium) {
             width: 100%;
           }
           &:hover {
@@ -156,7 +161,7 @@ form {
           top: 0;
           left: 0;
           cursor: pointer;
-          @include breakpoint-down(small) {
+          @include breakpoint-down(medium) {
             width: 100%;
           }
         }
@@ -194,7 +199,7 @@ form {
         font-weight: 700;
         text-align: right;
         outline: none;
-        @include breakpoint-down(small) {
+        @include breakpoint-down(medium) {
           margin: auto;
         }
       }
@@ -214,7 +219,7 @@ form {
       align-content: center;
       height: 350px;
       background-color: var(--verydarkcyan);
-      @include breakpoint-down(small) {
+      @include breakpoint-down(medium) {
         margin: 7rem 2rem;
         height: rem(250);
       }
@@ -278,7 +283,7 @@ form {
         font-size: 1rem;
         letter-spacing: 0.2mm;
         cursor: pointer;
-        @include breakpoint-down(small) {
+        @include breakpoint-down(medium) {
           top: -40px;
           background-color: var(--strongcyan);
           opacity: 1;
