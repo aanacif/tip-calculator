@@ -17,9 +17,9 @@
 
 <body>
 
-	<nav class="navbar">
-		<img src="./app/images/logo.svg" alt="logo">
-	</nav>
+	<header class="header">
+		<img src="./app/images/logo.svg" alt="splitter">
+	</header>
 
 	<main>
 		<div class="container">
@@ -29,10 +29,11 @@
 
 					<div class="calc-inputs">
 
+
 						<label for="bill" class="bill">Bill</label>
 						<input type="number" name="bill" class="calc-bill" min=1 oninput="validity.valid||(value='');">
 
-						<img src="./app/images/icon-dollar.svg" alt="dollar-sign" class="dollar">
+						<img src="./app/images/icon-dollar.svg" alt="" class="dollar">
 						<h2 class="calc-tip-title">Select Tip %</h2>
 
 						<div class="calc-percs">
@@ -64,10 +65,9 @@
 
 							<label for="option-custom-radio" class="option-label">
 								<input type="radio" id="option-custom-radio" name="options">
-								<input type="number" name="option-custom-input" onfocus="clearActives()" placeholder="Custom" min=0
-									oninput="validity.valid||(value='');">
+								<input type="number" id="option-custom" name="option-custom-input" onfocus="clearActives()"
+									placeholder="Custom" min=0 oninput="validity.valid||(value='');">
 							</label>
-
 
 						</div>
 
@@ -75,31 +75,33 @@
 							<span class="calc-number-of-people">Number of People</span><span class="zero-people">Can't be zero</span>
 						</div>
 
-						<input type="number" name="people" class="calc-people" placeholder="0" min=0
-							oninput="validity.valid||(value='');">
+						<label for="calc-people-label">
+							<input type="number" id="calc-people-label" name="people" class="calc-people" placeholder="0" min=0
+								oninput="validity.valid||(value='');">
+						</label>
 						<img src="./app/images/icon-person.svg" alt="person-icon" class="people-icon">
 
 					</div>
+			</form>
 
+			<div class="calc-visor">
 
-					<div class="calc-visor">
-
-						<div class="calc-tip-amount">
-							<h2 class="calc-tip-amount-title">Tip Amount <span class="calc-tip-amount-person">/ person</span></h2>
-							<h1>$0.00</h1>
-						</div>
-
-						<div class="calc-total">
-							<h2 class="calc-total-title">Total <span class="calc-total-person">/ person</span></h2>
-							<h1>$0.00</h1>
-						</div>
-						<button type="reset" class="reset">RESET</button>
-
-					</div>
-
+				<div class="calc-tip-amount">
+					<h2 class="calc-tip-amount-title">Tip Amount <span class="calc-tip-amount-person">/ person</span></h2>
+					<p>$0.00</p>
 				</div>
 
-			</form>
+				<div class="calc-total">
+					<h2 class="calc-total-title">Total <span class="calc-total-person">/ person</span></h2>
+					<p>$0.00</p>
+				</div>
+				<button type="reset" class="reset">RESET</button>
+
+			</div>
+
+		</div>
+
+
 
 		</div>
 

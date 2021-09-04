@@ -7,8 +7,8 @@ const calcPeople = document.querySelector('.calc-people')
 //reset button
 const calcReset = document.querySelector('.reset')
 
-const tipAmountPerson = document.querySelector('.calc-tip-amount h1').textContent
-const tipAmountTotal = document.querySelector('.calc-total h1').textContent
+const tipAmountPerson = document.querySelector('.calc-tip-amount p').textContent
+const tipAmountTotal = document.querySelector('.calc-total p').textContent
 
 const percentageSelectEvent = document.querySelector('.calc-percs')
 percentageSelectEvent.addEventListener('change', (event) => {
@@ -43,8 +43,8 @@ const clearActives = () => {
 	}
 }
 calcReset.addEventListener('click', () => {
-	document.querySelector('.calc-tip-amount h1').textContent = '$0.00'
-	document.querySelector('.calc-total h1').textContent = '$0.00'
+	document.querySelector('.calc-tip-amount p').textContent = '$0.00'
+	document.querySelector('.calc-total p').textContent = '$0.00'
 	clearActives()
 })
 function calcPercentage(bill, percentage) {
@@ -80,8 +80,8 @@ const checkOut = (custom) => {
 	if (custom) {
 		let totalPerPerson = calcTotalPerPerson(calcBill.value, calcPeople.value)
 		let totalPercentage = calcPercentage(calcBill.value, round(custom))
-		document.querySelector('.calc-total h1').textContent = `$${round(totalPerPerson + (totalPercentage / calcPeople.value))}`
-		document.querySelector('.calc-tip-amount h1').textContent = `$${round(totalPercentage)}`
+		document.querySelector('.calc-total p').textContent = `$${round(totalPerPerson + (totalPercentage / calcPeople.value))}`
+		document.querySelector('.calc-tip-amount p').textContent = `$${round(totalPercentage)}`
 		return
 	}
 
@@ -89,13 +89,13 @@ const checkOut = (custom) => {
 	let totalPercentage = calcPercentage(calcBill.value, selectedPercentage())
 
 	if (totalPerPerson > 0) {
-		document.querySelector('.calc-total h1').textContent = `$${round(totalPerPerson + (totalPercentage / calcPeople.value))}`
+		document.querySelector('.calc-total p').textContent = `$${round(totalPerPerson + (totalPercentage / calcPeople.value))}`
 	}
 	if (totalPercentage == 0) {
-		document.querySelector('.calc-tip-amount h1').textContent = `$0.00`
+		document.querySelector('.calc-tip-amount p').textContent = `$0.00`
 	} else {
 		let totalPercentage = calcPercentage(calcBill.value, selectedPercentage())
-		document.querySelector('.calc-tip-amount h1').textContent = `$${round(totalPercentage)}`
+		document.querySelector('.calc-tip-amount p').textContent = `$${round(totalPercentage)}`
 	}
 }
 const selectedPercentage = () => {
